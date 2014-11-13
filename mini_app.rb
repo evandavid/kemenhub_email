@@ -4,7 +4,7 @@ require 'sinatra-initializers'
 class MiniApp < Sinatra::Base
 
     register Sinatra::Initializers
-    get "/" do
+    post "/" do
         Thread.new {
             body = params['body']
             to = params['to']
