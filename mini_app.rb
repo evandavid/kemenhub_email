@@ -19,6 +19,7 @@ class MiniApp < Sinatra::Base
     end
 
     get "/keepalive" do
+        puts "keep alive shoted"
         "hore"
     end
 
