@@ -1,24 +1,25 @@
 # keep alive server
-# require 'rufus/scheduler'
-# scheduler = Rufus::Scheduler.new
+require 'rufus/scheduler'
+scheduler = Rufus::Scheduler.new
 
-# scheduler.every '4m' do
-#   require "net/http"
-#   require "uri"
-#   url = 'http://www.yourwebsite.de'
-#   Net::HTTP.get_response(URI.parse(url))
-# end
+scheduler.every '4m' do
+  require "net/http"
+  require "uri"
+  url = 'http://polar-wave-3605.herokuapp.com'
+  Net::HTTP.get_response(URI.parse(url))
+end
 
 # set pony mail
-Pony.mail({
-  :to => 'ev.kristian@gmail.com',
+Pony.options = {
+  :from => 'noreply@dephub.go.id',
   :via => :smtp,
   :via_options => {
-    :address        => 'bigpotatoes2.qwords.net',
-    :port           => '465',
-    :user_name      => 'kemenhub@rifanmfauzi.com',
-    :password       => 'initalkshow',
-    :authentication => :plain, # :plain, :login, :cram_md5, no auth by default
-    :domain         => "rifanmfauzi.com" # the HELO domain provided by the client to the server
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :domain => 'heroku.com',
+    :user_name      => 'app31558314@heroku.com',
+    :password       => 'rg68qktn',
+    :authentication => 'plain',
+    :enable_starttls_auto => true
   }
-})
+}
