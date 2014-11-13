@@ -18,4 +18,8 @@ class MiniApp < Sinatra::Base
         }
     end
 
+    get "/keepalive"
+        "hore"
+    end
+
 end

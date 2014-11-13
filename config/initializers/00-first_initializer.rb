@@ -5,7 +5,7 @@ scheduler = Rufus::Scheduler.new
 scheduler.every '4m' do
   require "net/http"
   require "uri"
-  url = 'http://polar-wave-3605.herokuapp.com'
+  url = 'http://polar-wave-3605.herokuapp.com/keepalive'
   Net::HTTP.get_response(URI.parse(url))
 end
 
